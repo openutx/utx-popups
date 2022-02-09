@@ -3,7 +3,7 @@
 ## 安装
 - 命令行执行
 ```
-pip install -U popup
+pip install -U popups
 ```
 ## 使用
 
