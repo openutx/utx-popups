@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 from setuptools import setup, find_packages
-from popup import __version__
+from popups import __version__
 
 with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name="popup",
+    name="popups",
     version="{}".format(__version__),
-    keywords=["utx", "popup", "airtest", "tools"],
+    keywords=["utx", "popups", "airtest", "tools"],
     description='General pop-up processing!',
     long_description=long_description,
     long_description_content_type='text/markdown',
     license='Apache License 2.0',
 
-    url="https://github.com/openutx/popup",
+    url="https://github.com/openutx/popups",
     author="lijiawei",
     author_email="jiawei.li2@qq.com",
     classifiers=[
@@ -34,6 +34,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     platforms="any",
-    install_requires=["airtest"]
+    install_requires=["utx"]
 
 )

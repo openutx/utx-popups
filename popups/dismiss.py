@@ -8,7 +8,7 @@
 """
 
 from airtest.core.api import *
-from popup.settings import Settings as ST
+from popups.settings import Settings as ST
 
 
 def popup(tpl=ST.TPL_DIR, timeout=5, devices=None, enable=ST.ENABLE):
