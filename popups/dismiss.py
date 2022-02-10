@@ -29,7 +29,7 @@ def popup(tpl=ST.TPL_DIR, timeout=5, devices=None, enable=ST.ENABLE):
             images_path = tpl
             images = os.listdir(images_path)
         else:
-            images_path = os.path.join(os.getcwd(), 'img')
+            images_path = str(__file__).replace('dismiss.py', 'img')
             images = os.listdir(images_path)
 
         print(images)
