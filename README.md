@@ -13,8 +13,8 @@ from popups.settings import Settings as ST
 
 # 默认是False状态，使用时需要打开
 ST.ENABLE = True
-# 图片模版路径，不传则使用popup自带的模版库
-IMG_PATH = 'img'
+# 图片模版路径，不传则使用popups自带的模版库
+IMG_PATH = 'your_tpl_path'
 # 单独使用popup时需要传入设备URL，配合utx使用时无需关注
 DEVICE = 'Android://127.0.0.1:5037/SJE5T17B17'
 

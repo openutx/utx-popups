@@ -1,1 +1,1 @@
-recursive-include popups/img *
+recursive-include popups/tpl *

@@ -12,3 +12,4 @@ class Settings(object):
     TPL_DIR = None
     TIMEOUT = 5
     ENABLE = False
+    SYS = False
