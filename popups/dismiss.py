@@ -29,9 +29,9 @@ def popup(tpl=UT.TPL_DIR, timeout=5, devices=None):
         else:
             if UT.SYS:
                 if UT.iOS:
-                    images_path = str(__file__).replace('dismiss.py', 'tpl/ios')
+                    images_path = str(__file__).replace('dismiss.py', 'tpl/sys/ios')
                 else:
-                    images_path = str(__file__).replace('dismiss.py', 'tpl/android')
+                    images_path = str(__file__).replace('dismiss.py', 'tpl/sys/android')
             else:
                 images_path = str(__file__).replace('dismiss.py', 'tpl/app')
 
