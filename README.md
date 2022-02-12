@@ -8,15 +8,22 @@ pip install -U popups
 ## 使用
 
 ```python
-from popups import popup
-from popups import UT
+from popups import popup, UT
 
 # 默认是False状态，使用时需要打开
 UT.ENABLE = True
 # 图片模版路径，不传则使用popups自带的模版库
 IMG_PATH = 'your_tpl_path'
+# 是否启用系统弹窗处理
+UT.SYS = True
+# 是否上iOS系统
+UT.iOS = True
+# 循环执行次数，默认为1次
+UT.LOOP = 1
+# 超时时间，默认为5秒
+UT.TIMEOUT = 5
 # 单独使用popup时需要传入设备URL，配合utx使用时无需关注
 DEVICE = 'Android://127.0.0.1:5037/SJE5T17B17'
 
-popup(tpl=IMG_PATH, devices=DEVICE)
+popup(devices=DEVICE)
 ```
