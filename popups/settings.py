@@ -13,3 +13,5 @@ class Settings(object):
     TIMEOUT = 5
     ENABLE = False
     SYS = False
+    LOOP = 1
+    iOS = False

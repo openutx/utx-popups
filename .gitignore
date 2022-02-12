@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+popups/popups/tpl/app/.DS_Store
+popups/popups/tpl/sys/.DS_Store
 
 # C extensions
 *.so

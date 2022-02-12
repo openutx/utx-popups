@@ -23,24 +23,27 @@ def popup(tpl=UT.TPL_DIR, timeout=5, devices=None):
     if UT.ENABLE:
         auto_setup(__file__, devices=str(devices).split(','))
         ST.FIND_TIMEOUT_TMP = timeout
-        ST.THRESHOLD = 0.7
 
         if tpl:
             images_path = tpl
         else:
             if UT.SYS:
-                images_path = str(__file__).replace('dismiss.py', 'tpl/sys')
+                if UT.iOS:
+                    images_path = str(__file__).replace('dismiss.py', 'tpl/ios')
+                else:
+                    images_path = str(__file__).replace('dismiss.py', 'tpl/android')
             else:
                 images_path = str(__file__).replace('dismiss.py', 'tpl/app')
 
         try:
-            images = os.listdir(images_path)
+            images = sorted([tpl for tpl in os.listdir(images_path) if str(tpl).endswith('png')])
             logger.info(f'Try to find template pictures: {images}')
-            for img in images:
-                logger.info(f'Try to find tpl: {img}')
-                pos = exists(Template(r"{}/{}".format(images_path, img)))
-                if pos:
-                    touch(pos)
+            for s in range(UT.LOOP):
+                for img in images:
+                    logger.info(f'Try to find tpl: {img}')
+                    pos = exists(Template(r"{}/{}".format(images_path, img)))
+                    if pos:
+                        touch(pos)
         except FileNotFoundError as E:
             logger.warning(f'Picture template path does not exist: {images_path}')
             logger.error(f'{E}')
