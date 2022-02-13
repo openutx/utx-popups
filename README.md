@@ -8,7 +8,7 @@ pip install -U popups
 ## 使用
 
 ```python
-from popups import popup, UT
+from popups.dismiss import popup, UT
 
 # 默认是False状态，使用时需要打开
 UT.ENABLE = True
