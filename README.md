@@ -1,5 +1,5 @@
 # popups
-![PyPI](https://img.shields.io/pypi/v/popups) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/popups) ![GitHub top language](https://img.shields.io/github/languages/top/openutx/popups) ![PyPI - Downloads](https://img.shields.io/pypi/dm/popups?style=plastic) ![GitHub stars](https://img.shields.io/github/stars/openutx/popups?style=social) ![https://blog.csdn.net/flower_drop](https://img.shields.io/badge/csdn-%40flower__drop-orange)
+![PyPI](https://img.shields.io/pypi/v/popups) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/popups) ![GitHub top language](https://img.shields.io/github/languages/top/openutx/popups) [![Downloads](https://pepy.tech/badge/popups)](https://pepy.tech/project/popups) ![GitHub stars](https://img.shields.io/github/stars/openutx/popups?style=social) ![https://blog.csdn.net/flower_drop](https://img.shields.io/badge/csdn-%40flower__drop-orange)
 ## 安装
 - 命令行执行
 ```
