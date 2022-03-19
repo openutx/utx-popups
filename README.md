@@ -16,7 +16,9 @@ UT.ENABLE = True
 IMG_PATH = 'your_tpl_path'
 # 是否启用系统弹窗处理
 UT.SYS = True
-# 是否上iOS系统
+# 是否启用APP弹窗处理
+UT.APP = False
+# 是否是iOS系统
 UT.iOS = True
 # 循环执行次数，默认为1次
 UT.LOOP = 1
