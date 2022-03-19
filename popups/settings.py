@@ -11,7 +11,9 @@
 class Settings(object):
     TPL_DIR = None
     TIMEOUT = 5
+    INTERVAL = 2.0
     ENABLE = False
+    APP = False
     SYS = False
     LOOP = 1
     iOS = False

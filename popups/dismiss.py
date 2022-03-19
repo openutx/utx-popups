@@ -12,38 +12,58 @@ from popups.settings import Settings as UT
 from loguru import logger
 
 
-def popup(tpl=UT.TPL_DIR, timeout=5, devices=None):
+def popup(devices=None):
     """
     General pop-up processing!
     :param devices: Current device uri
-    :param tpl: Image template flies path
-    :param timeout: timeout Default 5 seconds
     :return: Click pop-up event
     """
     if UT.ENABLE:
-        auto_setup(__file__, devices=str(devices).split(','))
-        ST.FIND_TIMEOUT_TMP = timeout
-
-        if tpl:
-            images_path = tpl
+        if devices:
+            auto_setup(__file__, devices=str(devices).split(','))
         else:
-            if UT.SYS:
-                if UT.iOS:
-                    images_path = str(__file__).replace('dismiss.py', 'tpl/sys/ios')
+            auto_setup(__file__)
+        ST.FIND_TIMEOUT_TMP = UT.TIMEOUT
+
+        if UT.SYS:
+            if UT.iOS:
+                ios = device()
+                for step in range(UT.LOOP):
+                    for btn in UT.DEFAULT_ACCEPT_BUTTONS:
+                        logger.info(f'Try to find button: {btn}')
+                        with ios.alert_watch_and_click([btn], interval=UT.INTERVAL):
+                            sleep(1)
+            else:
+                if UT.TPL_DIR:
+                    images_path = UT.TPL_DIR
                 else:
                     images_path = str(__file__).replace('dismiss.py', 'tpl/sys/android')
+                try:
+                    images = sorted([tpl for tpl in os.listdir(images_path) if str(tpl).endswith('png')])
+                    logger.info(f'Try to find template pictures: {images}')
+                    for step in range(UT.LOOP):
+                        for img in images:
+                            logger.info(f'Try to find tpl: {img}')
+                            pos = exists(Template(r"{}/{}".format(images_path, img)))
+                            if pos:
+                                touch(pos)
+                except TargetNotFoundError as E:
+                    logger.warning(f'Picture template path does not exist: {images_path}')
+                    logger.error(f'{E}')
+        elif UT.APP:
+            if UT.TPL_DIR:
+                images_path = UT.TPL_DIR
             else:
                 images_path = str(__file__).replace('dismiss.py', 'tpl/app')
-
-        try:
-            images = sorted([tpl for tpl in os.listdir(images_path) if str(tpl).endswith('png')])
-            logger.info(f'Try to find template pictures: {images}')
-            for s in range(UT.LOOP):
-                for img in images:
-                    logger.info(f'Try to find tpl: {img}')
-                    pos = exists(Template(r"{}/{}".format(images_path, img)))
-                    if pos:
-                        touch(pos)
-        except FileNotFoundError as E:
-            logger.warning(f'Picture template path does not exist: {images_path}')
-            logger.error(f'{E}')
+            try:
+                images = sorted([tpl for tpl in os.listdir(images_path) if str(tpl).endswith('png')])
+                logger.info(f'Try to find template pictures: {images}')
+                for step in range(UT.LOOP):
+                    for img in images:
+                        logger.info(f'Try to find tpl: {img}')
+                        pos = exists(Template(r"{}/{}".format(images_path, img)))
+                        if pos:
+                            touch(pos)
+            except TargetNotFoundError as E:
+                logger.warning(f'Picture template path does not exist: {images_path}')
+                logger.error(f'{E}')
