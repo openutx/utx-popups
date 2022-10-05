@@ -29,3 +29,5 @@ DEVICE = 'Android://127.0.0.1:5037/SJE5T17B17'
 
 popup(devices=DEVICE)
 ```
+## 
+- 配合`utx`使用效果更好
