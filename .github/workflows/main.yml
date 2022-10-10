@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: autofix.ci
 
 # Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  pull_request:
-    branches: [ "main" ]
+on: [ push, pull_request ]
+permissions:
+  contents: read
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -14,5 +14,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cargo fmt
+
+      # Format your code with https://github.com/psf/black
+      - uses: install-pinned/black@f5d59a59cc226885223ed39f26fe5f9a23ac06ac
+      - run: black .
+
+      # Remove unused imports with https://github.com/PyCQA/autoflake
+      - uses: install-pinned/autoflake@fa3c1715169ac36d903ee9d492d64beb5cad331f
+      - run: autoflake --in-place --remove-all-unused-imports -r .
+
+      # Sort imports with https://github.com/PyCQA/isort
+      - uses: install-pinned/isort@875d46cd15140f9e09309f6304620d16de2ef91d
+      - run: isort .
+
+      # Upgrade to the latest Python syntax with https://github.com/asottile/pyupgrade
+      - uses: install-pinned/pyupgrade@847ef2b8aa35a3817372540b887f4130d864d6b7
+      - run: |
+         shopt -s globstar
+         pyupgrade --exit-zero-even-if-changed --py310-plus **/*.py
+
       - uses: autofix-ci/action@85348864affbd15ee858694a665c38b2f31d802c
