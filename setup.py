@@ -1,20 +1,19 @@
 #!/usr/bin/env python
-# -*- coding:utf-8 -*-
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
+
 from popups import __version__
 
-with open('README.md', encoding='utf-8') as f:
+with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
     name="popups",
-    version="{}".format(__version__),
+    version=f"{__version__}",
     keywords=["utx", "popups", "airtest", "tools"],
-    description='General pop-up processing!',
+    description="General pop-up processing!",
     long_description=long_description,
-    long_description_content_type='text/markdown',
-    license='Apache License 2.0',
-
+    long_description_content_type="text/markdown",
+    license="Apache License 2.0",
     url="https://github.com/openutx/popups",
     author="lijiawei",
     author_email="jiawei.li2@qq.com",
@@ -29,11 +28,10 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: Implementation :: CPython"
+        "Programming Language :: Python :: Implementation :: CPython",
     ],
     packages=find_packages(),
     include_package_data=True,
     platforms="any",
-    install_requires=["utx", "loguru"]
-
+    install_requires=["utx", "loguru"],
 )

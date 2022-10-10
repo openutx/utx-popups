@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# encoding=utf-8
 
 """
 @Author  :  Lijiawei
@@ -8,7 +7,7 @@
 """
 
 
-class Settings(object):
+class Settings:
     TPL_DIR = None
     TIMEOUT = 5
     INTERVAL = 2.0
@@ -19,6 +18,21 @@ class Settings(object):
     iOS = False
     PROXY = False
     DEFAULT_ACCEPT_BUTTONS = [
-        "使用App时允许", "无线局域网与蜂窝网络", "好", "稍后", "稍后提醒", "确定", "允许访问所有照片",
-        "允许", "以后", "打开", "录屏", "Allow", "OK", "YES", "Yes", "Later", "Close"
+        "使用App时允许",
+        "无线局域网与蜂窝网络",
+        "好",
+        "稍后",
+        "稍后提醒",
+        "确定",
+        "允许访问所有照片",
+        "允许",
+        "以后",
+        "打开",
+        "录屏",
+        "Allow",
+        "OK",
+        "YES",
+        "Yes",
+        "Later",
+        "Close",
     ]
