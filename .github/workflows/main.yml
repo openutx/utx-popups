@@ -6,8 +6,9 @@ name: autofix.ci
 on: 
   pull_request:
     branches: [ "main" ]
-permissions:
-  contents: read
+# permissions:
+#   contents: read
+permissions: read-all|write-all
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
