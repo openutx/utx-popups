@@ -8,8 +8,25 @@
 
 from airtest.core.api import *
 from loguru import logger
-
+from loguru import logger
+from loguru import logger
+from loguru import logger
+from loguru import logger
 from popups.settings import Settings as UT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def popup(devices=None):
