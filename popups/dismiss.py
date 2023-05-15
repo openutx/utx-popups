@@ -1,11 +1,9 @@
 #!/usr/bin/python
-
 """
 @Author  :  Lijiawei
 @Date    :  2022/2/9 2:40 下午
 @Desc    :  dismiss line.
 """
-
 from airtest.core.api import *
 from loguru import logger
 
@@ -50,7 +48,7 @@ def popup(devices=None):
                     for step in range(UT.LOOP):
                         for img in images:
                             logger.info(f"Try to find tpl: {img}")
-                            pos = exists(Template(fr"{images_path}/{img}"))
+                            pos = exists(Template(rf"{images_path}/{img}"))
                             if pos:
                                 touch(pos)
                 except TargetNotFoundError as E:
@@ -71,7 +69,7 @@ def popup(devices=None):
                 for step in range(UT.LOOP):
                     for img in images:
                         logger.info(f"Try to find tpl: {img}")
-                        pos = exists(Template(fr"{images_path}/{img}"))
+                        pos = exists(Template(rf"{images_path}/{img}"))
                         if pos:
                             touch(pos)
             except TargetNotFoundError as E:
